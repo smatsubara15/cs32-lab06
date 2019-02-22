@@ -12,7 +12,8 @@ class IceCreamItem {
 public:
 	// Constructor for an IceCreamItem. All ice cream items
 	// will either be "small", "medium", or "large".
-	IceCreamItem(std::string size);
+  IceCreamItem(std::string size): size(size){
+  }
 
 	// A virtual method that composes a string with the details
 	// of an IceCreamItem. See the lab writeup and test files
