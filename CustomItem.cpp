@@ -49,10 +49,39 @@ std::string CustomItem::composeItem(){
 
   oss<<"Custom Size: "<<size<<"\n"
      <<"Toppings:"<<"\n";
-  // for(vector<top>::iterator i=toppings.begin();i<toppings.end();i++){
+// for(vector<top>::iterator i=toppings.begin();i<toppings.end();i++){
+  //for(size_t i=0;i<toppings.size();i++){
+  //oss<<toppings[i].name<<": "<<toppings[i].count<<" oz"<<"\n";
+  //}
+  if(toppings.size()!=0){
+  top a[toppings.size()];
   for(size_t i=0;i<toppings.size();i++){
-  oss<<toppings[i].name<<": "<<toppings[i].count<<" oz"<<"\n";
+    a[i]=toppings[i];
+  }
+  sort(a,toppings.size());
+  for(size_t i=0;i<toppings.size();i++){
+    oss<<a[i].name<<": "<<a[i].count<<" oz"<<"\n";
+  }
   }
   oss<<"Price: $"<<std::fixed<<std::setprecision(2)<<this->getPrice()<<"\n";
   return oss.str();
+}
+
+void CustomItem::sort(top *a, size_t size){
+  top temp;
+  bool swapped;
+  for(size_t i=size-1; i>0; i--){
+    swapped=false;
+    for(int j=0;j<1;j++){
+      if((a[j].name).compare(a[j+1].name)>0){
+	temp=a[j];
+	a[j]=a[j+1];
+	a[j+1]=temp;
+	swapped=true;
+      }
+    }
+    if(!swapped){
+      return;
+    }
+  }
 }

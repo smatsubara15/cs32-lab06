@@ -18,6 +18,7 @@ class CustomItem: public IceCreamItem{
     std::string name;
     int count;
   };
+  void sort(top *a, size_t size); 
   std::vector<top> toppings;
 };
 
